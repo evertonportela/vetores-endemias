@@ -24,5 +24,8 @@ Route.group(
   () => {
     // *GET /agente  *POST /agente  * GET /agente/:id  * PUT /agente/:id  * DELETE /agente/:id
     Route.resource('agente', 'AgenteController').apiOnly()
+
+    // *GET /atividade  *POST /atividade  * GET /atividade/:id  * PUT /atividade/:id  * DELETE /atividade/:id
+    Route.resource('atividade', 'AtividadeDoDiaController').apiOnly()
   } 
 )

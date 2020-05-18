@@ -11,8 +11,8 @@ const Agente = use('App/Models/Agente');
  */
 class AgenteController {
   /**
-   * Show a list of all agentes.
-   * GET /agentes
+   * Show a list of all agent.
+   * GET /agente
    */
   async index () {
     const agente = await Agente.all();
@@ -20,8 +20,8 @@ class AgenteController {
   }
 
   /**
-   * Create/save a new agente.
-   * POST /agentes
+   * Create/save a new agent.
+   * POST /agente
    */
   async store ({ request}) {
     const data = request.only([ 'agente_cns', 'agente_apelido', 'agente_nome_completo' ]);
@@ -30,8 +30,8 @@ class AgenteController {
   }
 
   /**
-   * Display a single agente.
-   * GET /agentes/:id
+   * Display a single agent.
+   * GET /agente/:id
    */
   async show ({ params }) {
     const agente = await Agente.findOrFail(params.id);
@@ -39,8 +39,8 @@ class AgenteController {
   }
 
   /**
-   * Update agente details.
-   * PUT or PATCH /agentes/:id
+   * Update agent details.
+   * PUT or PATCH /agente/:id
    */
   async update ({ params, request }) {
     const data = request.only( ['agente_cns', 'agente_apelido', 'agente_nome_completo'] );
@@ -53,8 +53,8 @@ class AgenteController {
   }
 
   /**
-   * Delete a agente with id.
-   * DELETE /agentes/:id
+   * Delete a agent with id.
+   * DELETE /agente/:id
    */
   async destroy ({ params }) {
     const agente = await Agente.findOrFail(params.id);
