@@ -8,6 +8,10 @@ class AtividadeDoDia extends Model {
         super.boot()
         this.addTrait('NoTimestamp')
     }
+
+    static get primaryKey() {
+        return 'atv_dia_id'
+    }
 }
 
 module.exports = AtividadeDoDia

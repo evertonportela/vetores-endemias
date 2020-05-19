@@ -3,15 +3,15 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Agente extends Model {
+class VisitaTipo extends Model {
     static boot () {
         super.boot()
         this.addTrait('NoTimestamp')
     }
 
     static get primaryKey() {
-        return 'agente_id'
+        return 'visita_tipo_id'
     }
 }
 
-module.exports = Agente
+module.exports = VisitaTipo
