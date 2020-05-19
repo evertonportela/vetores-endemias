@@ -7,11 +7,11 @@ const AtividadeDoDia = use('App/Models/AtividadeDoDia');
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with agentes
+ * Resourceful controller for interacting with Day Activities
  */
 class AtividadeDoDiaController {
     /**
-     * Show a list of all activities.
+     * Show a list of all Day Activities.
      * GET /atividade
      */
     async index () {
@@ -20,7 +20,7 @@ class AtividadeDoDiaController {
     }
 
     /**
-     * Create/save a new activity.
+     * Create/save a new Day Activities.
      * POST /atividade
      */
     async store ({ request}) {
@@ -30,7 +30,7 @@ class AtividadeDoDiaController {
     }
 
     /**
-     * Display a single activity.
+     * Display a single Day Activities.
      * GET /atividade/:id
      */
     async show ({ params }) {
@@ -39,7 +39,7 @@ class AtividadeDoDiaController {
     }
 
     /**
-     * Update activity details.
+     * Update Day Activities details.
      * PUT or PATCH /atividade/:id
      */
     async update ({ params, request }) {
@@ -53,7 +53,7 @@ class AtividadeDoDiaController {
     }
 
     /**
-     * Delete a agent with id.
+     * Delete a Day Activities with id.
      * DELETE /atividade/:id
      */
     async destroy ({ params }) {
