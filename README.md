@@ -1,10 +1,10 @@
 # VetoresEndemiasAPI
 
-<img src="https://img.shields.io/static/v1?label=ADONISJS&message=API Vetores Endemias&color=<COLOR>&logo=ADONISJS&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ADONISJS&message=APIVetoresEndemias&color=<COLOR>&logo=ADONISJS&style=for-the-badge"/>
 
 
 
-API desenvolvida para o aplicativo CLIC - Agente, do projeto VETORES. O aplicativo CLIC - Agente é focado no agente municipal de endemias e buscou simplificar ações rotineiras do dia a dia de trabalhos do agente. 
+API desenvolvida para o aplicativo CLIC - Agente no projeto VETORES. O aplicativo CLIC - Agente é focado no agente municipal de endemias e buscou simplificar ações rotineiras do dia a dia de trabalhos do agente. 
 
 _Aplicativo Android desenvolvido pelo Centro Integrado de Tecnologia da Informação do Itanhy - CITII_
 
