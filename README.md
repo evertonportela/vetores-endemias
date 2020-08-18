@@ -154,29 +154,25 @@ UPDATE /imovel/tipos/:id
 ```
 
 
-
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
-
-## Instalação
-
-Use the adonis command to install the blueprint
+## Instalação 
+Use o comando abaixo para instalar o AdonisJS globalmente.
 
 ```bash
-adonis new yardstick --api-only
+npm i -g @adonisjs/cli
+```
+Para conferir se a instalação ocorreu corretamente, execute o comando 
+```bash 
+adonis --help
+```
+Uma outra opção é clocar o repositório executar
+```bash
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+Será necessário configurar o arquivo `.env` para as condições do seu ambiente de desenvolvimento ou produção. 
 
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
+## Execução
+Use o comando para executar o projeto.
+```bash
+adonis serve --dev
 ```

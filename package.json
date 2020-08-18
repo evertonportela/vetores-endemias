@@ -1,12 +1,13 @@
 {
-  "name": "adonis-api-app",
-  "version": "4.1.0",
+  "name": "vetores-endemias-api",
+  "version": "0.1.2",
   "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "description": "Projeto Vetores - API desenvolvida para o aplicativo CLIC Agente, focado no agente municipal de endemias",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "node ace test",
+    "dev": "adonis serve --dev"
   },
   "keywords": [
     "adonisjs",
