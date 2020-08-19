@@ -17,8 +17,11 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'Hello world Vetores-Endemias-API JSON. CLIC Agente App' }
 })
+
+// Rota para autenticação *POST /sessions
+Route.post('/sessions', 'SessionController.create')
 
 Route.group( 
   () => {

@@ -67,10 +67,10 @@ module.exports = {
   */
   jwt: {
     serializer: 'lucid',
-    model: 'App/Models/Agente',
+    model: 'App/Models/User',
     scheme: 'jwt',
-    uid: 'agente_apelido',
-    password: 'agente_cns',
+    uid: 'email',
+    password: 'password',
     options: {
       secret: Env.get('APP_KEY')
     }
