@@ -4,6 +4,9 @@
 const Model = use('Model')
 
 class Localidade extends Model {
+    regioes() {
+        return this.hasMany('App/Models/Regiao')
+    }
 }
 
 module.exports = Localidade
