@@ -1,11 +1,14 @@
-version: "3"
+version: "3.8"
 
 services:
         app:
             build: .
-            command: npm start
-            ports: 
-                - "3333:3333"
+            command: adonis serve
+            ports:
+                - target: 3333
+                  published: 3333
+                  protocol: tcp
+                  mode: host
             volumes:
                 - .:/usr/app
                 
