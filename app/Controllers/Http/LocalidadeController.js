@@ -1,5 +1,9 @@
 'use strict'
 
+const MunicipioController = require('./MunicipioController');
+
+const Localidade = use('App/Models/Localidade');
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -10,83 +14,53 @@
 class LocalidadeController {
   /**
    * Show a list of all localidades.
-   * GET localidades
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
+   * GET /localidades
    */
-  async index ({ request, response, view }) {
-  }
-
-  /**
-   * Render a form to be used for creating a new localidade.
-   * GET localidades/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async index () {
+    const localidade = await Localidade.all();
+    return localidade;
   }
 
   /**
    * Create/save a new localidade.
-   * POST localidades
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * POST /localidades
    */
-  async store ({ request, response }) {
+  async store ({ request }) {
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
+    const localidade = await Localidade.create(data);
+    return localidade;
   }
 
   /**
    * Display a single localidade.
-   * GET localidades/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
+   * GET /localidades/:id
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing localidade.
-   * GET localidades/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+  async show ({ params }) {
+    const localidade = await Localidade.findOrFail(params.id);
+    return localidade;
   }
 
   /**
    * Update localidade details.
-   * PUT or PATCH localidades/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * PUT or PATCH /localidades/:id
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request }) {
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
+    const localidade = await Localidade.findOrFail(params.id);
+
+    localidade.merge(data);
+    await localidade.save();
+
+    return localidade;
   }
 
   /**
    * Delete a localidade with id.
-   * DELETE localidades/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
+   * DELETE /localidades/:id
+   */ 
+  async destroy ({ params }) {
+    const localidade = await Localidade.findOrFail(params.id)
+    await localidade.delete();
   }
 }
 

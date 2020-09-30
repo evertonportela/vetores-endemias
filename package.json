@@ -12,7 +12,7 @@
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
+  "author": "@ipti, @evertonportela",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

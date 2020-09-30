@@ -1,5 +1,7 @@
 'use strict'
 
+const Regiao = use('App/Models/Regiao');
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -10,84 +12,54 @@
 class RegiaoController {
   /**
    * Show a list of all regiaos.
-   * GET regiaos
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
+   * GET /regioes
    */
-  async index ({ request, response, view }) {
-  }
-
-  /**
-   * Render a form to be used for creating a new regiao.
-   * GET regiaos/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async index () {
+    const regiao = await Regiao.all();
+    return regiao;
   }
 
   /**
    * Create/save a new regiao.
-   * POST regiaos
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * POST /regioes
    */
-  async store ({ request, response }) {
-  }
+  async store({ request }) {
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const regiao = await Regiao.create(data);
+      return regiao;
+}
 
   /**
    * Display a single regiao.
-   * GET regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
+   * GET /regioes/:id
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing regiao.
-   * GET regiaos/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+  async show ({ params }) {
+      const regiao = await Regiao.findOrFail(params.id);
+      return regiao;
   }
 
   /**
    * Update regiao details.
-   * PUT or PATCH regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * PUT or PATCH /regioes/:id
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request }) {
+    const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+        const regiao = await Regiao.findOrFail(params.id);
+
+        regiao.merge(data);
+        await regiao.save();
+
+        return regiao;
   }
 
   /**
    * Delete a regiao with id.
-   * DELETE regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * DELETE /regioes/:id
    */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy({ params }) {
+    const regiao = await Regiao.findOrFail(params.id);
+    await regiao.delete();
+}
 }
 
 module.exports = RegiaoController
