@@ -12,6 +12,10 @@ class ImovelTipo extends Model {
     static get primaryKey() {
         return 'imovel_tipo_id'
     }
+
+    visitas() {
+        return this.hasMany('App/Models/Visita')
+    }
 }
 
 module.exports = ImovelTipo

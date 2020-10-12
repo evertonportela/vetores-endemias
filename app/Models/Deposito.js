@@ -12,6 +12,13 @@ class Deposito extends Model {
      static get primaryKey() {
         return 'depositos_id'
     }
+
+    visitas () {
+        return this
+            .belongsToMany('App/Models/Visita')
+            .withPivot(['is_current_owner'])
+            .pivotModel('App/Models/UserCar')
+    }
 }
 
 module.exports = Deposito

@@ -12,6 +12,10 @@ class AtividadeDoDia extends Model {
     static get primaryKey() {
         return 'atv_dia_id'
     }
+
+    visitas() {
+        return this.hasMany('App/Models/Visita')
+    }
 }
 
 module.exports = AtividadeDoDia

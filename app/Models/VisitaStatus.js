@@ -12,6 +12,10 @@ class VisitaStatus extends Model {
     static get primaryKey() {
         return 'visita_status_id'
     }
+
+    visitas() {
+        return this.hasMany('App/Models/Visita')
+    }
 }
 
 module.exports = VisitaStatus

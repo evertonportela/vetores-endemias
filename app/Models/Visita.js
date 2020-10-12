@@ -3,19 +3,15 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Regiao extends Model {
+class Visita extends Model {
     static boot() {
         super.boot()
         this.addTrait('NoTimestamp')
     }
 
     static get primaryKey() {
-        return 'regiao_id'
-    }
-
-    visitas() {
-        return this.hasMany('App/Models/Visita')
+        return 'visita_id'
     }
 }
 
-module.exports = Regiao
+module.exports = Visita

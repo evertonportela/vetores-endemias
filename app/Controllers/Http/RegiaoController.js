@@ -43,13 +43,13 @@ class RegiaoController {
    * PUT or PATCH /regioes/:id
    */
   async update ({ params, request }) {
-    const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
-        const regiao = await Regiao.findOrFail(params.id);
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const regiao = await Regiao.findOrFail(params.id);
 
-        regiao.merge(data);
-        await regiao.save();
+      regiao.merge(data);
+      await regiao.save();
 
-        return regiao;
+      return regiao;
   }
 
   /**
@@ -59,7 +59,7 @@ class RegiaoController {
   async destroy({ params }) {
     const regiao = await Regiao.findOrFail(params.id);
     await regiao.delete();
-}
+  }
 }
 
 module.exports = RegiaoController
