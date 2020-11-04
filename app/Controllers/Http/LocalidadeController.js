@@ -1,4 +1,7 @@
 'use strict'
+
+const MunicipioController = require('./MunicipioController');
+
 const Localidade = use('App/Models/Localidade');
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
@@ -23,7 +26,7 @@ class LocalidadeController {
    * POST /localidades
    */
   async store ({ request }) {
-    const data = request.only( ['localidade_minicipio', 'localidade_nome_localidade']);
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
     const localidade = await Localidade.create(data);
     return localidade;
   }
@@ -33,7 +36,7 @@ class LocalidadeController {
    * GET /localidades/:id
    */
   async show ({ params }) {
-    const localidade = await Localidade.findOrFail(params.id)
+    const localidade = await Localidade.findOrFail(params.id);
     return localidade;
   }
 
@@ -42,7 +45,7 @@ class LocalidadeController {
    * PUT or PATCH /localidades/:id
    */
   async update ({ params, request }) {
-    const data = request.only([ 'localidade_municipio', 'localidade_nome_localidade' ]);
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
     const localidade = await Localidade.findOrFail(params.id);
 
     localidade.merge(data);
@@ -54,9 +57,9 @@ class LocalidadeController {
   /**
    * Delete a localidade with id.
    * DELETE /localidades/:id
-   */
+   */ 
   async destroy ({ params }) {
-    const localidade = await Localidade.findOrFail(params.id);
+    const localidade = await Localidade.findOrFail(params.id)
     await localidade.delete();
   }
 }

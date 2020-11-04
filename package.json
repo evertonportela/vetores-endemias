@@ -1,6 +1,6 @@
 {
   "name": "vetores-endemias-api",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "adonis-version": "4.1.0",
   "description": "Projeto Vetores - API desenvolvida para o aplicativo CLIC Agente, focado no agente municipal de endemias",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
+  "author": "@ipti, @evertonportela",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

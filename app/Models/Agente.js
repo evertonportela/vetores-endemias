@@ -12,6 +12,10 @@ class Agente extends Model {
     static get primaryKey() {
         return 'agente_id'
     }
+
+    visitas() {
+        return this.hasMany('App/Models/Visita')
+    }
 }
 
 module.exports = Agente

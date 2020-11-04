@@ -1,6 +1,6 @@
 'use strict'
+
 const Regiao = use('App/Models/Regiao');
-const Localidade = use('App/Models/Localidade');
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -23,65 +23,42 @@ class RegiaoController {
    * Create/save a new regiao.
    * POST /regioes
    */
-  async store ({ request }) {
-    
-    const data = request.only([ 'agente_cns', 'agente_apelido', 'agente_nome_completo' ]);
-    
-    const localidade = await Localidade.find();
-
-    const regiao = await localidade
-      .regioes()
-      .create(data);
-    
-    return regiao;
-
-
-  }
+  async store({ request }) {
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const regiao = await Regiao.create(data);
+      return regiao;
+}
 
   /**
    * Display a single regiao.
-   * GET regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
+   * GET /regioes/:id
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing regiao.
-   * GET regiaos/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+  async show ({ params }) {
+      const regiao = await Regiao.findOrFail(params.id);
+      return regiao;
   }
 
   /**
    * Update regiao details.
-   * PUT or PATCH regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * PUT or PATCH /regioes/:id
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request }) {
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const regiao = await Regiao.findOrFail(params.id);
+
+      regiao.merge(data);
+      await regiao.save();
+
+      return regiao;
   }
 
   /**
    * Delete a regiao with id.
-   * DELETE regiaos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
+   * DELETE /regioes/:id
    */
-  async destroy ({ params, request, response }) {
+  async destroy({ params }) {
+    const regiao = await Regiao.findOrFail(params.id);
+    await regiao.delete();
   }
 }
 
