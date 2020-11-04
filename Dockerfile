@@ -1,14 +1,14 @@
-FROM node:12.18.3
+FROM node:12-slim
 
-WORKDIR /usr/app
+WORKDIR /home/node/api
 
 COPY package*.json ./
 
-RUN npm install
 RUN npm i -g @adonisjs/cli
+RUN npm install
 
 COPY . .
 
 EXPOSE 3333
 
-CMD ["adonis", "serve", "--dev"]
+CMD ["adonis", "serve"]
