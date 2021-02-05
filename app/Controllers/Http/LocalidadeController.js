@@ -26,7 +26,7 @@ class LocalidadeController {
    * POST /localidades
    */
   async store ({ request }) {
-    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'localidade_categoria', 'localidade_zona', 'municipio_municipio_id']);
     const localidade = await Localidade.create(data);
     return localidade;
   }
@@ -45,7 +45,7 @@ class LocalidadeController {
    * PUT or PATCH /localidades/:id
    */
   async update ({ params, request }) {
-    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'municipio_municipio_id']);
+    const data = request.only(['localidade_nome_localidade', 'localidade_rua', 'localidade_categoria', 'localidade_zona', 'municipio_municipio_id']);
     const localidade = await Localidade.findOrFail(params.id);
 
     localidade.merge(data);

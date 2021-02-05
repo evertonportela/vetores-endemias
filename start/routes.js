@@ -40,8 +40,8 @@ Route.group(
         // *GET /imovel/tipos   *POST /imovel/tipos   *GET /imovel/tipos/:id    *PUT /imovel/tipos/:id    *DELETE /imovel/tipos/:id
         Route.resource('imovel/tipos', 'ImovelTipoController').apiOnly()
 
-        // *GET /regioes        *POST /regioes        *GET /regioes/:id         *PUT /regioes/:id         *DELETE /regioes/:id
-        Route.resource('regioes', 'RegiaoController').apiOnly()
+        // *GET /ciclo        *POST /ciclo        *GET /ciclo/:id         *PUT /ciclo/:id         *DELETE /ciclo/:id
+        Route.resource('ciclos', 'CicloController').apiOnly()
         
         // *GET /localidades    *POST /localidades    *GET /localidades/:id     *PUT /localidades/:id     *DELETE /localidades/:id
         Route.resource('localidades', 'LocalidadeController').apiOnly()
