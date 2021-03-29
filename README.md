@@ -36,4 +36,3 @@ adonis migration:run
 Use o comando para executar o projeto em modo desenvolvimento.
 ```bash
 adonis serve --dev
-```

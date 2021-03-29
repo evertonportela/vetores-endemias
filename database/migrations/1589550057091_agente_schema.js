@@ -17,5 +17,3 @@ class AgenteSchema extends Schema {
         this.drop('agentes')
     }
 }
-
-module.exports = AgenteSchema
