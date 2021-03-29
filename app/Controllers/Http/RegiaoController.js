@@ -24,7 +24,7 @@ class RegiaoController {
    * POST /regioes
    */
   async store({ request }) {
-      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_ativo', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
       const regiao = await Regiao.create(data);
       return regiao;
 }
@@ -43,7 +43,7 @@ class RegiaoController {
    * PUT or PATCH /regioes/:id
    */
   async update ({ params, request }) {
-      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
+      const data = request.only(['regiao_ciclo', 'regiao_ano', 'regiao_ativo', 'regiao_categoria', 'regiao_zona', 'localidade_localidade_id']);
       const regiao = await Regiao.findOrFail(params.id);
 
       regiao.merge(data);

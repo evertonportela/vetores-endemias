@@ -14,7 +14,7 @@ class Municipio extends Model {
     }
 
     localidades() {
-        return this.manyThrough('App/Models/Localidade', 'regioes')
+        return this.manyThrough('App/Models/Localidade', 'visitas')
     }
 }
 

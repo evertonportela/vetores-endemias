@@ -6,6 +6,7 @@ API desenvolvida para o aplicativo CLIC - Agente no projeto VETORES. O aplicativ
 
 _O Aplicativo está sendo desenovolvido pelo Centro Integrado de Tecnologia da Informação do Itanhy - CITI². Versão Android disponível em: https://play.google.com/store/apps/details?id=br.org.ipti.vetores.endemias_
 
+Para conferir documentação referente ao desenvolvimento da API, acesse a Wiki no repositório do projeto no Github. https://github.com/ipti/br.vetores.endemias.api/wiki
 
 
 ## Instalação 

@@ -30,12 +30,13 @@ class VisitaController {
       'visita_observacao', 
       'visita_cns_responsavel', 
       'visita_data_nasc_responsavel', 
-      'regiao_id', 
       'visita_tipo_id', 
       'imovel_tipo_id', 
       'visita_status_id', 
       'agente_id', 
-      'atv_dia_id'
+      'atv_dia_id',
+      'localidade_id',
+      'ciclo_id'
     ]);
     const visita = await Visita.create(data);
     return visita;
@@ -61,12 +62,13 @@ class VisitaController {
       'visita_observacao', 
       'visita_cns_responsavel', 
       'visita_data_nasc_responsavel', 
-      'regiao_id', 
       'visita_tipo_id', 
       'imovel_tipo_id', 
       'visita_status_id', 
       'agente_id', 
-      'atv_dia_id'
+      'atv_dia_id',
+      'localidade_id',
+      'ciclo_id'
     ]);
     const visita = await Visita.findOrFail(params.id);
 

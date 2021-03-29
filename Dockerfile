@@ -9,6 +9,4 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3333
-
-CMD ["adonis", "serve"]
+EXPOSE 8081
